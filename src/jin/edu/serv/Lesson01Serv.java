@@ -86,7 +86,7 @@ public class Lesson01Serv extends HttpServlet {
 
                 // 背景色が設定されている場合は結果背景色に緑を代入する。
                 if (!backgroundColor.equals("")) {
-                    resultBackgroundColor = "#C8FFC8";
+                    resultBackgroundColor = getColorCode(backgroundColor);
                 } else {
                     resultBackgroundColor = "#FFFFFF";
                 }
@@ -94,7 +94,8 @@ public class Lesson01Serv extends HttpServlet {
             }
 
             // requestに結果を設定する
-            request.setAttribute("resultBackgroundColor",resultBackgroundColor);
+            request.setAttribute("resultBackgroundColor",
+                    resultBackgroundColor);
             request.setAttribute("shainInfoDto", shainInfoDto);
             request.setAttribute("resultDisp", resultDisp);
 
@@ -103,5 +104,22 @@ public class Lesson01Serv extends HttpServlet {
 
         }
 
+    }
+
+    /*
+     * @see Lesson01Serv#getColorCode(String color) return String
+     */
+    public String getColorCode(String color) {
+        switch (color) {
+        // 赤
+        case "1":
+            return "#FF0000";
+        case "2":
+            return "#00FF00";
+        case "3":
+            return "#0000FF";
+        default:
+            return "#FFFFFF";
+        }
     }
 }

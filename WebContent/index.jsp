@@ -19,7 +19,13 @@
             <td align="right"><button type="submit" name="procNo" value="1">検索</button></td><td>&nbsp;</td></tr>
             <tr>
                 <td align="right">背景色：</td>
-                <td colspan="2"><input type="text" name="backgroundColor" maxlength=8 size=8 ></td>
+                <td colspan="2">
+                    <select name="backgroundColor">
+                    <option value="1">赤</option>
+                    <option value="2">緑</option>
+                    <option value="3">青</option>
+                    </select>
+                </td>
             </tr>
         </table>
 <%
