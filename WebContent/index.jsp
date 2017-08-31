@@ -5,13 +5,14 @@
 <%
     ShainInfoDto shainInfoDto = (ShainInfoDto)request.getAttribute("shainInfoDto");    //社員情報を設定する
     String resultDisp = (String)request.getAttribute("resultDisp");        //検索結果表判定を設定する
+    String backgroundColor = "#F0FAF0";
 %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>lesson01</title>
 </head>
-<body>
+<body style="background-color:<%=backgroundColor%>">
     <form name="lesson31Form" action="Lesson01Serv" method="post">
         <table border="0" align="center">
             <tr><td align="right">社員番号：</td><td><input type="text"  name="shainNo" maxlength=4 size=4 ></td>
