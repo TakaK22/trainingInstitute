@@ -52,6 +52,12 @@ public class Lesson01Serv extends HttpServlet {
         response.setContentType("text/html; charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
 
+        // 背景色を取得する。
+        String backgroundColor = request.getParameter("backgroundColor");
+
+        // 結果背景色を設定する。(初期値：白)
+        String resultBackgroundColor = "#FFFFFF";
+
         // 処理番号を取得する。
         String procNo = request.getParameter("procNo");
 
@@ -77,9 +83,18 @@ public class Lesson01Serv extends HttpServlet {
                 if (shainInfoDto.getShainNameKj() != null) {
                     resultDisp = "1";
                 }
+
+                // 背景色が設定されている場合は結果背景色に緑を代入する。
+                if (!backgroundColor.equals("")) {
+                    resultBackgroundColor = "#C8FFC8";
+                } else {
+                    resultBackgroundColor = "#FFFFFF";
+                }
+
             }
 
             // requestに結果を設定する
+            request.setAttribute("resultBackgroundColor",resultBackgroundColor);
             request.setAttribute("shainInfoDto", shainInfoDto);
             request.setAttribute("resultDisp", resultDisp);
 

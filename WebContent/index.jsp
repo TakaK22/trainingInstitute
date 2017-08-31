@@ -5,7 +5,7 @@
 <%
     ShainInfoDto shainInfoDto = (ShainInfoDto)request.getAttribute("shainInfoDto");    //社員情報を設定する
     String resultDisp = (String)request.getAttribute("resultDisp");        //検索結果表判定を設定する
-    String backgroundColor = "#F0FAF0";
+    String backgroundColor = (String)request.getAttribute("resultBackgroundColor");
 %>
 <html>
 <head>
@@ -17,6 +17,10 @@
         <table border="0" align="center">
             <tr><td align="right">社員番号：</td><td><input type="text"  name="shainNo" maxlength=4 size=4 ></td>
             <td align="right"><button type="submit" name="procNo" value="1">検索</button></td><td>&nbsp;</td></tr>
+            <tr>
+                <td align="right">背景色：</td>
+                <td colspan="2"><input type="text" name="backgroundColor" maxlength=8 size=8 ></td>
+            </tr>
         </table>
 <%
     if (resultDisp == "1") {
