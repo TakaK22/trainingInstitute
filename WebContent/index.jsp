@@ -43,11 +43,15 @@
                         <td align="center" bgcolor="#c0ffc0">No</td>
                         <td align="center" bgcolor="#c0ffc0">社員番号</td>
                         <td align="center" bgcolor="#c0ffc0">社員名</td>
+                        <td align="center" bgcolor="#c0ffc0">部署番号</td>
+                        <td align="center" bgcolor="#c0ffc0">部署名</td>
                     </tr>
                     <tr>
                         <td width="30" align="right">1</td>
                         <td width="80" align="center"><%=shainInfoDto.getShainNo()%></td>
                         <td width="150" align="center"><%=shainInfoDto.getShainNameKj()%></td>
+                        <td width="80" align="center"><%=shainInfoDto.getBushoNo()%></td>
+                        <td width="150" align="center"><%=shainInfoDto.getBushoNameKj()%></td>
                     </tr>
                 </table>
             </td></tr>

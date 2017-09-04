@@ -21,6 +21,22 @@ public class ShainInfoDao extends DBConnectCommon {
             + "WHERE "
             + "SHAIN_NO = ? ";
 
+    private final static String SELECT_SHAININFO_BUSHOINFO = ""
+            + "SELECT "
+            + "  si.SHAIN_NO "
+            + "  ,si.SHAIN_NAME_KJ "
+            + "  ,si.SHAIN_NAME_KN "
+            + "  ,bi.BUSHO_NO "
+            + "  ,bi.BUSHO_NAME_KJ "
+            + "  ,bi.BUSHO_NAME_KN "
+            + "FROM "
+            + "  SHAIN_INFO si "
+            + "INNER JOIN "
+            + "  BUSHO_INFO bi "
+            + "ON bi.SHAIN_NO=si.SHAIN_NO "
+            + "WHERE "
+            + "  si.SHAIN_NO = ? ";
+
     /**
      * 社員情報取得処理 概要：社員情報を取得します。
      *
@@ -47,7 +63,7 @@ public class ShainInfoDao extends DBConnectCommon {
             super.connect();
 
             // SQLをStringBuilderに設定する。
-            sql.append(SELECT_SHAININFO);
+            sql.append(SELECT_SHAININFO_BUSHOINFO);
 
             // 初期のSQLをPreparedStatementに設定する。
             statement = con.prepareStatement(sql.toString());
@@ -67,6 +83,16 @@ public class ShainInfoDao extends DBConnectCommon {
 
                 // 社員名(カナ)を設定する。
                 shainInfoDto.setShainNameKn(rs.getString("SHAIN_NAME_KN"));
+
+                // 部署番号を設定する。
+                shainInfoDto.setBushoNo(rs.getString("BUSHO_NO"));
+
+                // 部署名(漢字)を設定する。
+                shainInfoDto.setBushoNameKj(rs.getString("BUSHO_NAME_KJ"));
+
+                // 部署名(カナ)を設定する。
+                shainInfoDto.setBushoNameKn(rs.getString("BUSHO_NAME_KN"));
+
             }
         } catch (NamingException e) {
             e.printStackTrace();
