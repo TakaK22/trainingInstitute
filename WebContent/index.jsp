@@ -21,6 +21,7 @@
                 <td align="right">背景色：</td>
                 <td colspan="2">
                     <select name="backgroundColor">
+                    <option value="0">-</option>
                     <option value="1">赤</option>
                     <option value="2">緑</option>
                     <option value="3">青</option>
